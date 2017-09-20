@@ -1,3 +1,5 @@
+Group 10 - Swikar, Saurabh, Shantanu
+
 The program finds the max value of a given graph using converge cast. It aslo appends all the values of child nodes and creats a single valued string at the root node.
 
 There are two options to run the program:
