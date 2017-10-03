@@ -3,7 +3,7 @@ package com.sjsu.hw3;
 import java.util.Observable;
 
 /**
- * 
+ *
  * @author Swikar Patel
  *
  */
@@ -24,7 +24,7 @@ public class Buffer extends Observable {
 	}
 
 /**
- * 
+ *
  * @param message
  * @param sender
  */
@@ -32,7 +32,7 @@ public class Buffer extends Observable {
 		this.message = message;
 		this.sender = sender;
 		setChanged();
-		notifyObservers(sender);
+		notifyObservers();
 	}
 
 	public Processor getSender() {

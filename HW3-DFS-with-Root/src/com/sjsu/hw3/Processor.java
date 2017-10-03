@@ -6,7 +6,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * 
+ *
  * @author Swikar Patel
  *
  */
@@ -28,13 +28,13 @@ public class Processor implements Observer {
 		children = new ArrayList<>();
 		unexplored = new ArrayList<>();
 		// Each processor is observing itself
-		messageBuffer.addObserver(this);		
+		messageBuffer.addObserver(this);
 	}
 
 	/**
 	 * This method removes a processor from the connected graph once it is done
 	 * sending message to it.
-	 * 
+	 *
 	 * @param toBeRemoved
 	 *            the processor object reference to be removed from graph
 	 */
@@ -45,7 +45,7 @@ public class Processor implements Observer {
 	/**
 	 * This method will add a message to this processors buffer. Other processors
 	 * will invoke this method to send a message to this Processor.
-	 * 
+	 *
 	 * @param message
 	 *            The type to be sent as the message
 	 * @param sender
@@ -59,18 +59,17 @@ public class Processor implements Observer {
 	 * This is analogous to receive method. It receives the message when the message
 	 * is published by some processor. Based on the type of message, it takes
 	 * appropriate action.
-	 * 
+	 *
 	 * @param observable
 	 * @param arg
 	 */
 	public void update(Observable observable, Object arg) {
 
-		Processor sender = (Processor) arg;
+		Processor sender = messageBuffer.getSender();
 
-		System.out.println("Processor " + this.getId() + " received message " + this.messageBuffer.getMessage() 
+		System.out.println("Processor " + this.getId() + " received message " + this.messageBuffer.getMessage()
 				+ " from Processor " + sender.getId());
-		
-		if (observable == messageBuffer) {
+
 		switch (this.messageBuffer.getMessage()) {
 		case M:
 			// Received a message from a processor. If no parent is set for this, set the
@@ -104,7 +103,6 @@ public class Processor implements Observer {
 		default:
 			break;
 		}
-	}
 	}
 
 	/**
