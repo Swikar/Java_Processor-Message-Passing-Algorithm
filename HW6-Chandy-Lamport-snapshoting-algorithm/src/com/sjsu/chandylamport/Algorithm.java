@@ -2,7 +2,7 @@ package com.sjsu.chandylamport;
 
 /**
  * This is the simulation of a main algorithm that will run on processors P1, P2, P3
- * This could be a banking application, payroll application or any other distributed application
+ * This could be a banking application, payroll application or any other distributed application application
  */
 public class Algorithm {
 
